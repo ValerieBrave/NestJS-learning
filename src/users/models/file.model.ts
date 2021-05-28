@@ -13,4 +13,10 @@ export class File {
 
     @Column('varchar')
     fileName: string;
+
+    public constructor(jobId: number, path: string, filename: string) {
+        this.jobId = jobId;
+        this.path = path;
+        this.fileName = filename;
+    }
 }

@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
-import bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcrypt';
 
 @Entity()
 @Unique(['email'])
@@ -18,10 +18,12 @@ export class User {
 
   @Column('varchar')
   password: string;
+
   
-  public constructor(name: string, email: string) {
+  public constructor(name: string, email: string, birthday: Date) {
     this.name = name;
     this.email = email;
+    this.birthday = birthday;
   }
 
   public async hashPassword(password: string): Promise<void> {
