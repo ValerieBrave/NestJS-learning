@@ -1,12 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./user.model";
 
 @Entity()
 export class File {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column('int')
-    jobId: number;
+    @ManyToOne(() => User, user => user.id)
+    user: number;
     
     @Column('varchar')
     path: string;
@@ -14,8 +15,8 @@ export class File {
     @Column('varchar')
     fileName: string;
 
-    public constructor(jobId: number, path: string, filename: string) {
-        this.jobId = jobId;
+    public constructor(userId: number, path: string, filename: string) {
+        this.user = userId;
         this.path = path;
         this.fileName = filename;
     }
