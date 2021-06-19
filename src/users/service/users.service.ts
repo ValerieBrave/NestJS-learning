@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { File } from './models/file.model';
-import { User } from './models/user.model';
+import { File } from '../data/models/file.model';
+import { User } from '../data/models/user.model';
 import * as path from 'path';
-import { UserRepository } from './repositories/users.repository';
-import { FileRepository } from './repositories/files.repository';
+import { UserRepository } from '../data/repositories/users.repository';
+import { FileRepository } from '../data/repositories/files.repository';
 
 @Injectable()
 export class UsersService {

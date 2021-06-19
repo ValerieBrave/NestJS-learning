@@ -3,8 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { File } from './users/models/file.model';
-import { User } from './users/models/user.model';
+import { File } from './users/data/models/file.model';
+import { User } from './users/data/models/user.model';
 import { UsersModule } from './users/users.module';
 
 @Module({
