@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { FileService } from './service/file.service';
 import { File } from './data/models/file.model';
 import { User } from './data/models/user.model';
 import { FileRepository } from './data/repositories/files.repository';
@@ -11,6 +12,6 @@ import { UsersService } from './service/users.service';
 @Module({
   imports: [TypeOrmModule.forFeature([User, File, UserRepository, FileRepository])],
   controllers: [UsersController],
-  providers: [UsersService]
+  providers: [UsersService, FileService]
 })
 export class UsersModule {}
