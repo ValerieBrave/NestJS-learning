@@ -3,5 +3,4 @@ export class PostDto {
     readonly email: string;
     readonly birthday: string;  //passed as string from postman
     readonly password: string;
-    readonly jobId: number;
 }
