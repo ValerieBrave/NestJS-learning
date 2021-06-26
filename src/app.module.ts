@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { File } from './users/data/models/file.model';
 import { User } from './users/data/models/user.model';
 import { UsersModule } from './users/users.module';
+import { PostLogger } from './util/logging/post.logger';
 
 @Module({
   imports: [
@@ -20,6 +22,7 @@ import { UsersModule } from './users/users.module';
     entities: [User, File],
     synchronize: true,
   }),
-    UsersModule]
+    UsersModule],
+    providers: [PostLogger]
 })
 export class AppModule {}

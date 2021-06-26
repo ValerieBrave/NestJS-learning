@@ -1,5 +1,6 @@
 import { ArgumentMetadata, HttpException, HttpStatus, Injectable, PipeTransform } from "@nestjs/common";
-import { PostDto } from "src/users/presentation/dto/post.dto";
+
+import { PostDto } from "../../users/presentation/dto/post.dto";
 
 @Injectable()
 export class TranformationPipe implements PipeTransform<string, PostDto> {
