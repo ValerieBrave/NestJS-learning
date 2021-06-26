@@ -1,6 +1,7 @@
 import { ArgumentMetadata, BadRequestException, Injectable, PipeTransform } from "@nestjs/common";
-import { ArraySchema, ObjectSchema } from "joi";
-import { PostDto } from "src/users/presentation/dto/post.dto";
+import { ObjectSchema } from "joi";
+
+import { PostDto } from "../../users/presentation/dto/post.dto";
 
 
 @Injectable()
