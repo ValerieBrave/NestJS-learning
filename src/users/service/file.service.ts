@@ -5,8 +5,8 @@ import * as streamifier from 'streamifier';
 
 import { File } from '../data/models/file.model';
 import { FileRepository } from "../data/repositories/files.repository";
-import { PostLogger } from "src/util/logging/post.logger";
-import { COLORS } from "src/util/logging/colors";
+import { PostLogger } from "../../util/logging/post.logger";
+import { COLORS } from "../../util/logging/colors";
 
 export class FileService {
     private logger : PostLogger;
@@ -18,7 +18,7 @@ export class FileService {
     }
 
     async saveFileToDB(userId: number, file: Express.Multer.File) : Promise<File> {
-        const saved =  await this.fileRepository.save(new File(userId, path.join('D://NestJS//nest-learning//uploads', file.originalname), file.originalname));
+        const saved =  await this.fileRepository.save(new File(userId, path.join('D://NestJS//NestJS-learning//uploads', file.originalname), file.originalname));
         this.logger.write(`File ${file.originalname} saved to DB`, COLORS.GREEN);
         return saved;
     }
