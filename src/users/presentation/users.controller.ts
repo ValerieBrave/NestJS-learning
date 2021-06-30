@@ -1,12 +1,12 @@
-import { Body, ClassSerializerInterceptor, Controller, Post, Req, Res, UploadedFiles, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Post, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { PostDto } from './dto/post.dto';
 import { UsersService } from '../service/users.service';
-import ValidationPost from 'src/util/decorators/validationpost.decorator';
+import ValidationPost from '../../util/decorators/validationpost.decorator';
 import { ApiBody, ApiConsumes, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { ClientPostDto } from './dto/clientPost.dto';
 import { User } from '../data/models/user.model';
-import { PostLogger } from 'src/util/logging/post.logger';
+import { PostLogger } from '../../util/logging/post.logger';
 
 
 @Controller('users')
@@ -32,9 +32,9 @@ export class UsersController {
             const user: User = await this.usersService.saveUser(modelData.name, modelData.email, modelData.birthday, modelData.password);
             await this.usersService.saveFile(modelData.email, files);
             
-            return user
+            return user;
         } catch(err) {
-            throw err
+            throw err;
         }
     }
 }

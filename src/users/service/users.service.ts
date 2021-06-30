@@ -6,8 +6,8 @@ import { UserRepository } from '../data/repositories/users.repository';
 import { FileService } from './file.service';
 import { File } from '../data/models/file.model';
 import { User } from '../data/models/user.model';
-import { PostLogger } from 'src/util/logging/post.logger';
-import { COLORS } from 'src/util/logging/colors';
+import { PostLogger } from '../../util/logging/post.logger';
+import { COLORS } from '../../util/logging/colors';
 
 @Injectable()
 export class UsersService {
@@ -51,7 +51,7 @@ export class UsersService {
             FS_operations.push(
                 this.fileService.saveFileToFS.bind(
                     this.fileService,
-                    path.join('D://NestJS//nest-learning//uploads', name),
+                    path.join('D://NestJS//NestJS-learning//uploads', name),
                     file
                 )
             )
